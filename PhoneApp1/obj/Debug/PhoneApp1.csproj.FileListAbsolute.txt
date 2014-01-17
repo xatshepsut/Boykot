@@ -73,10 +73,10 @@ C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\PhoneApp1.csprojResolveAssembl
 C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\App.g.cs
 C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\MainPage.g.cs
 C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\BarcodeReaderPage.g.cs
-C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\Products.g.cs
 C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\PhoneApp1.g.resources
 C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\PhoneApp1.Resources.AppResources.resources
 C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\PhoneApp1.csproj.GenerateResource.Cache
 C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\PhoneApp1.dll
 C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\PhoneApp1.pdb
 C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\XapCacheFile.xml
+C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\ProductsPage.g.cs

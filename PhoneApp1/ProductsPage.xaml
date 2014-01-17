@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="PhoneApp1.Products"
+    x:Class="PhoneApp1.ProductsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -7,7 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DataContext="{d:DesignData Resources/LocalData.xaml}"
+    d:DataContext="{d:DesignData Resources/LocalProductsData.xaml}"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -19,16 +19,14 @@
             <Grid Background="{StaticResource PhoneAccentBrush}"
                   Margin="0, 0, 12, 12">
                 <Grid VerticalAlignment="Top"
-                                      HorizontalAlignment="Right"
-                                      Width="40"
-                                      Height="40"
-                                      Margin="0, 6, 6, 0">
-                    <Ellipse Stroke="{StaticResource PhoneForegroundBrush}" 
-                                             StrokeThickness="3" />
-                    <Image Source="/Assets/AppBar/Play.png" />
+                                      HorizontalAlignment="Center"
+                                      Width="120"
+                                      Height="120"
+                                      Margin="5">
+                   <Image Source="{Binding FilePath}" />
                 </Grid>
                 <StackPanel VerticalAlignment="Bottom">
-                    <TextBlock Text="{Binding Title}" Margin="6, 0, 0, 6" />
+                    <TextBlock  HorizontalAlignment="Center" Text="{Binding Title}" Margin="5" />
                 </StackPanel>
             </Grid>
         </DataTemplate>
@@ -39,20 +37,20 @@
         <!--Pivot Control-->
         <phone:Pivot Title="MY APPLICATION">
             <!--Pivot item one-->
-            <phone:PivotItem Header="{Binding Meat.Title}">
+            <phone:PivotItem Header="{Binding Drinks.Title}">
                 <phone:LongListSelector 
                     Margin="0,0,-12,0" 
-                    ItemsSource="{Binding Meat.Items}"
+                    ItemsSource="{Binding Drinks.Items}"
                     LayoutMode="Grid"
                     GridCellSize="150,150"
                     ItemTemplate="{StaticResource SoundTileDataTemplate}"
                     />
             </phone:PivotItem>
 
-            <phone:PivotItem Header="{Binding Drinks.Title}">
+            <phone:PivotItem Header="{Binding Meat.Title}">
                 <phone:LongListSelector 
                     Margin="0,0,-12,0" 
-                    ItemsSource="{Binding Drinks.Items}"
+                    ItemsSource="{Binding Meat.Items}"
                     LayoutMode="Grid"
                     GridCellSize="150,150"
                     ItemTemplate="{StaticResource SoundTileDataTemplate}"

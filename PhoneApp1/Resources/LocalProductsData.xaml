@@ -6,7 +6,9 @@
     <vm:ProductModel.Drinks>
         <vm:ProductGroup Title="Drinks Sample">
             <vm:ProductGroup.Items>
-                <vm:ProductData Title="Drink 1" FilePath="drink.png" />
+                <vm:ProductData Title="Finlandia" FilePath="/Assets/ProductImages/finlandia.png" />
+                <vm:ProductData Title="Jermuk" FilePath="/Assets/ProductImages/jermuk.png" />
+                <vm:ProductData Title="Sandora" FilePath="/Assets/ProductImages/sandora.png" />
             </vm:ProductGroup.Items>
         </vm:ProductGroup>
     </vm:ProductModel.Drinks>
@@ -14,8 +16,8 @@
     <vm:ProductModel.Meat>
         <vm:ProductGroup Title="Meat Sample">
             <vm:ProductGroup.Items>
-                <vm:ProductData Title="Meat 1" FilePath="meat1.png" />
-                <vm:ProductData Title="Meat 2" FilePath="meat2.png" />
+                <vm:ProductData Title="Meat 1" FilePath="/Assets/ProductImages/finlandia.png" />
+                <vm:ProductData Title="Meat 2" FilePath="/Assets/ProductImages/jermuk.png" />
             </vm:ProductGroup.Items>
         </vm:ProductGroup>
     </vm:ProductModel.Meat>

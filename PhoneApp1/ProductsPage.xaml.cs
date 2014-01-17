@@ -12,9 +12,9 @@ using PhoneApp1.ViewModels;
 
 namespace PhoneApp1
 {
-    public partial class Products : PhoneApplicationPage
+    public partial class ProductsPage : PhoneApplicationPage
     {
-        public Products()
+        public ProductsPage()
         {
             InitializeComponent();
         }

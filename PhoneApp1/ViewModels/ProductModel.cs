@@ -30,12 +30,12 @@ namespace PhoneApp1.ViewModels
         {
             ProductGroup data = new ProductGroup();
             data.Title = "Meat";
-            string basePath = "assets/pictures/meat/";
+            string basePath = "assets/ProductImages/";
 
             data.Items.Add(new ProductData
             {
                 Title = "Xoz",
-                FilePath = basePath + "xoz.jpg"
+                FilePath = basePath + "finlandia.png"
             });
 
             return data;
@@ -45,7 +45,7 @@ namespace PhoneApp1.ViewModels
         {
             ProductGroup data = new ProductGroup();
             data.Title = "Baby food";
-            string basePath = "assets/audio/baby_food/";
+            string basePath = "assets/ProductImages/baby_food/";
 
             data.Items.Add(new ProductData
             {
@@ -60,13 +60,29 @@ namespace PhoneApp1.ViewModels
         {
             ProductGroup data = new ProductGroup();
             data.Title = "Drinks";
-            string basePath = "assets/audio/drinks/";
+            string basePath = "assets/ProductImages/";
 
-            data.Items.Add(new ProductData
+            for (int i = 0; i < 10; i++)
             {
-                Title = "Vodka",
-                FilePath = basePath + "vodka.jpg"
-            });
+                if(i%2==0)
+                data.Items.Add(new ProductData
+                {
+                    Title = "Finlandia",
+                    FilePath = basePath + "finlandia.png"
+                });
+
+                data.Items.Add(new ProductData
+                {
+                    Title = "Sandora",
+                    FilePath = basePath + "sandora.png"
+                });
+
+                data.Items.Add(new ProductData
+                {
+                    Title = "Jermuk",
+                    FilePath = basePath + "jermuk.png"
+                });
+            }
 
             return data;
         }
@@ -75,7 +91,7 @@ namespace PhoneApp1.ViewModels
         {
             ProductGroup data = new ProductGroup();
             data.Title = "Seafood";
-            string basePath = "assets/audio/seafood/";
+            string basePath = "assets/ProductImages/seafood/";
 
             data.Items.Add(new ProductData
             {
