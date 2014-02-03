@@ -30,7 +30,7 @@ namespace PhoneApp1
 
         private void productsListButton_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Products.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/ProductsPage.xaml", UriKind.Relative));
         }
 
         // Sample code for building a localized ApplicationBar

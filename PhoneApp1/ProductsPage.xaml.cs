@@ -12,9 +12,9 @@ using PhoneApp1.ViewModels;
 
 namespace PhoneApp1
 {
-    public partial class Products : PhoneApplicationPage
+    public partial class ProductsPage : PhoneApplicationPage
     {
-        public Products()
+        public ProductsPage()
         {
             InitializeComponent();
         }
@@ -22,13 +22,16 @@ namespace PhoneApp1
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (viewModel == null)
-                viewModel = new ProductModel();
-            if (!viewModel.IsDataLoaded)
+            if (!App.ViewModel.IsDataLoaded)
             {
-                viewModel.LoadData();
+                App.ViewModel.LoadData();
             }
-            DataContext = viewModel;
+            DataContext = App.ViewModel;
+        }
+
+        private void barSearchButton_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ProductSearchPage.xaml", UriKind.Relative));
         }
     }
    
