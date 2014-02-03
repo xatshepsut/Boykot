@@ -80,3 +80,5 @@ C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\PhoneApp1.dll
 C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\PhoneApp1.pdb
 C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\XapCacheFile.xml
 C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\ProductsPage.g.cs
+C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\ProductSearchPage.g.cs
+C:\Users\Hakob\Desktop\Boycot\PhoneApp1\obj\Debug\Resources\Page1.g.cs
