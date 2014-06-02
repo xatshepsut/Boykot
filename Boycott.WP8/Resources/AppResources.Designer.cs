@@ -36,7 +36,7 @@ namespace Boycott.WP8.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Boycott.WP8.Resources.AppResources", typeof(AppResources).Assembly);
@@ -51,7 +51,7 @@ namespace Boycott.WP8.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Boycott.WP8.Resources {
         /// <summary>
         ///   Looks up a localized string similar to add.
         /// </summary>
-        internal static string AppBarButtonText {
+        public static string AppBarButtonText {
             get {
                 return ResourceManager.GetString("AppBarButtonText", resourceCulture);
             }
@@ -72,16 +72,16 @@ namespace Boycott.WP8.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Menu Item.
         /// </summary>
-        internal static string AppBarMenuItemText {
+        public static string AppBarMenuItemText {
             get {
                 return ResourceManager.GetString("AppBarMenuItemText", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Boycott.
+        ///   Looks up a localized string similar to BOYCOTT.
         /// </summary>
-        internal static string ApplicationTitle {
+        public static string ApplicationTitle {
             get {
                 return ResourceManager.GetString("ApplicationTitle", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Boycott.WP8.Resources {
         /// <summary>
         ///   Looks up a localized string similar to LeftToRight.
         /// </summary>
-        internal static string ResourceFlowDirection {
+        public static string ResourceFlowDirection {
             get {
                 return ResourceManager.GetString("ResourceFlowDirection", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Boycott.WP8.Resources {
         /// <summary>
         ///   Looks up a localized string similar to en-US.
         /// </summary>
-        internal static string ResourceLanguage {
+        public static string ResourceLanguage {
             get {
                 return ResourceManager.GetString("ResourceLanguage", resourceCulture);
             }

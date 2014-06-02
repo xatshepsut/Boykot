@@ -10,8 +10,14 @@
 
     <!--Application Resources-->
     <Application.Resources>
-        <local:LocalizedStrings xmlns:local="clr-namespace:Boycott.WP8" x:Key="LocalizedStrings"/>
-        <vm:ViewModelLocator xmlns:vm="clr-namespace:Boycott.WP8.ViewModels" x:Key="Locator" d:IsDataSource="True" />
+        <ResourceDictionary>
+            <local:LocalizedStrings xmlns:local="clr-namespace:Boycott.WP8" x:Key="LocalizedStrings"/>
+            <vm:ViewModelLocator xmlns:vm="clr-namespace:Boycott.WP8.ViewModels" x:Key="Locator" d:IsDataSource="True" />
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/CustomStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

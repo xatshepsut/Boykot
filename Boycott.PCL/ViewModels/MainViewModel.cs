@@ -20,9 +20,20 @@ namespace Boycott.PCL.ViewModels
     public class MainViewModel : ViewModelBase
     {
         private ProductDataCache _productCache = ProductDataCache.Instance;
-        private ObservableCollection<Category> _categories = new ObservableCollection<Category>(); 
+        private List<Category> _categories = new List<Category>();
+        private List<Product> _products = new List<Product>();
 
         #region Properties
+
+        public List<Product> Products
+        {
+            get { return _products; }
+            set
+            {
+                _products = value;
+                RaisePropertyChanged(() => Products);
+            }
+        }
 
         public class Category
         {
@@ -30,14 +41,14 @@ namespace Boycott.PCL.ViewModels
             public List<Product> Products { get; set; }
         }
 
-        public ObservableCollection<Category> Categories { get { return _categories; } }
+        public List<Category> Categories { get { return _categories; } }
 
         #endregion
 
         #region Commands
 
         /// <summary>
-        /// Sample command
+        /// Load data command
         /// </summary>
         public RelayCommand LoadData { get; private set;}
 
@@ -83,7 +94,11 @@ namespace Boycott.PCL.ViewModels
             {
                 _categories.Add(_category);
             }
+
+            Products = _productCache.Products;
             
         }
+
+        
     }
 }

@@ -41,7 +41,9 @@
     <Compile Include="ProductDataCache.cs" />
     <Compile Include="ProductDataSync.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\ScanViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

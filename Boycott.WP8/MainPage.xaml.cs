@@ -8,6 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Boycott.WP8.Resources;
+using Boycott.PCL.ViewModels;
 
 namespace Boycott.WP8
 {
@@ -17,20 +18,26 @@ namespace Boycott.WP8
         public MainPage()
         {
             InitializeComponent();
-            //List<Int64> l = parser.Barcodes;
-            //l.Add(64);
-            // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
         }
 
-        private void barcodeCheckButton_Click(object sender, RoutedEventArgs e)
+        private void AppBarSearchButton_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/ProductSearchPage.xaml", UriKind.Relative));
+        }
+
+        private void AppBarScanButton_Click(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/BarcodeReaderPage.xaml", UriKind.Relative));
         }
 
-        private void productsListButton_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/ProductsPage.xaml", UriKind.Relative));
+            var vm = DataContext as MainViewModel;
+
+            if(vm != null)
+            {
+                vm.LoadData.Execute(null);
+            }
         }
 
         // Sample code for building a localized ApplicationBar

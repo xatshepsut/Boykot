@@ -44,6 +44,8 @@ namespace Boycott.WP8.ViewModels
             }
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<ScanViewModel>();
+            SimpleIoc.Default.Register<SearchViewModel>();
         }
 
         public MainViewModel Main
@@ -51,6 +53,22 @@ namespace Boycott.WP8.ViewModels
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public ScanViewModel Scan
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<ScanViewModel>();
+            }
+        }
+
+        public SearchViewModel Search
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<SearchViewModel>();
             }
         }
 

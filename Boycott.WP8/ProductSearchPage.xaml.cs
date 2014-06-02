@@ -8,89 +8,63 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Boycott.WP8.ViewModels;
+using Boycott.PCL.ViewModels;
+using System.Windows.Threading;
 
 namespace Boycott.WP8
 {
     public partial class ProductSearchPage : PhoneApplicationPage
     {
+        private DispatcherTimer _timer;
+
         public ProductSearchPage()
         {
             InitializeComponent();
+
+            this.Loaded += SearchPage_Loaded;
+
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromMilliseconds(600);
+            _timer.Tick += timerTicker;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void SearchPage_Loaded(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (!App.ViewModel.IsDataLoaded)
-            {
-                App.ViewModel.LoadData();
-            }
-            DataContext = App.ViewModel;
+            SearchTextBox.Focus();
         }
 
-       private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void SearchTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            /*TextBox obj = (TextBox)sender; 
-            System.Diagnostics.Debug.WriteLine("Worked");
-            if (obj.Text.Length >= 2)
+            if (e != null)
             {
-                ProductModel result = App.ViewModel.SearchInCategory("All", obj.Text);
-                DataContext = result;
-            //    foreach (ProductData item in App.ViewModel.Drinks.Items)
-            //    {
-            //        if (item.Title.ToUpper().Contains(obj.Text.ToUpper()))
-            //        {
-            //            System.Diagnostics.Debug.WriteLine("ok");
-            //       }
-            //    }
+                _timer.Start();
             }
-            else
-            {
-                DataContext = App.ViewModel;
-            }
-            InvalidateMeasure();
-             */
-            this.SearchProduct();
-        }
-
-        private void ProductGroupPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //Pivot obj = (Pivot)sender;
-            //string headerName = ((PivotItem)obj.SelectedItem).Header.ToString();
-           
-            //if(((PivotItem)obj.SelectedItem).Header.Equals("Meat"))
-            //{
-              //  System.Diagnostics.Debug.WriteLine("MEAT");
-            //}
-            this.SearchProduct();
-        }
-
-        private void SearchProduct()
-        {
-            if(this.SearchTextBox.Text.Length >= 2)
-            {
-                string categoryName = ((PivotItem)this.ProductGroupPivot.SelectedItem).Header.ToString();
-                System.Diagnostics.Debug.WriteLine(categoryName);
-                ProductModel result = App.ViewModel.SearchInCategory(categoryName, this.SearchTextBox.Text);
-                DataContext = result;
-            }
-            else
-            {
-                DataContext = App.ViewModel;
-            }
-            
         }
 
         private void SearchTextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("MEAT");
             if (e.Key.Equals(Windows.System.VirtualKey.B))
             {
                 // focus the page in order to remove focus from the text box
                 // and hide the soft keyboard
-                System.Diagnostics.Debug.WriteLine("MEAT");
             }
         }
 
-        
+        private void SearchWithKeyword(string query)
+        {
+            var vm = DataContext as SearchViewModel;
+
+            if (vm != null)
+            {
+                vm.FindProduct.Execute(query);
+            }
+        }
+
+        private void timerTicker(object sender, EventArgs e)
+        {
+            SearchWithKeyword(SearchTextBox.Text);
+
+            _timer.Stop();
+        }
     }
 }

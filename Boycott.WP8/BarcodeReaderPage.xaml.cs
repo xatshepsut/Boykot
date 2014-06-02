@@ -17,16 +17,17 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using Microsoft.Xna.Framework.Media;
 using Windows.Storage;
+using Boycott.PCL.ViewModels;
 
 namespace Boycott.WP8
 {
+    //TODO: move all scanning logic to PCL or at least use interfaces
     public partial class BarcodeReaderPage : PhoneApplicationPage
     {
         private PhotoCamera _phoneCamera;
         private IBarcodeReader _barcodeReader;
         private DispatcherTimer _scanTimer;
         private WriteableBitmap _previewBuffer;
-        private BoycottBarcodes _boycott;
         private bool isTakingPhoto = false;
         //private MediaLibrary _library;
 
@@ -35,7 +36,7 @@ namespace Boycott.WP8
         public BarcodeReaderPage()
         {
             InitializeComponent();
-            _boycott = new BoycottBarcodes();
+
             MediaLibrary _library = new MediaLibrary();
         }
 
@@ -221,14 +222,13 @@ namespace Boycott.WP8
             // If a new barcode is found, vibrate the device and display the barcode details in the UI
             if (!obj.Text.Equals(tbBarcodeData.Text))
             {
-                if (_boycott.isBoycottBarcode(obj.Text))
+                var vm = DataContext as ScanViewModel;
+
+                if(vm != null)
                 {
-                    MessageBox.Show("This product is under boycott!! please don't buy it");
+                    vm.FindBarcode.Execute(obj.Text);
                 }
-                else
-                {
-                    popupNotFound.IsOpen = true;
-                }
+
                 tbBarcodeType.Text = obj.BarcodeFormat.ToString();
                 tbBarcodeData.Text = obj.Text;
             }
@@ -236,7 +236,7 @@ namespace Boycott.WP8
 
         private void ScanForBarcode()
         {
-            if (popupNotFound.IsOpen || isTakingPhoto)
+            if (notFoundPopup.IsOpen || isTakingPhoto)
             {
                 return;
             }
@@ -250,9 +250,9 @@ namespace Boycott.WP8
 
         }
 
-        private void buttonYes_Click(object sender, RoutedEventArgs e)
+        private void yesButton_Click(object sender, RoutedEventArgs e)
         {
-            popupNotFound.IsOpen = false;
+            notFoundPopup.IsOpen = false;
             textBlockCapture.Visibility = System.Windows.Visibility.Visible;
             tbBarcodeType.Visibility = Visibility.Collapsed;
             tbBarcodeData.Visibility = System.Windows.Visibility.Collapsed;
@@ -260,9 +260,14 @@ namespace Boycott.WP8
             _scanTimer.Stop();
         }
 
-        private void buttonNo_Click(object sender, RoutedEventArgs e)
+        private void noButton_Click(object sender, RoutedEventArgs e)
         {
-            popupNotFound.IsOpen = false;
+            notFoundPopup.IsOpen = false;
+        }
+
+        private void okButton_Click(object sender, RoutedEventArgs e)
+        {
+            underBoycottPopup.IsOpen = false;
         }
     }
 }
